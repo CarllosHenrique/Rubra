@@ -1,0 +1,53 @@
+{
+  "name": "shopfy",
+  "productName": "shopfy",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "app/src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint src --color"
+  },
+  "keywords": [],
+  "author": "carllosintf",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "shopfy"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "shopfy"
+      }
+    }
+  },
+  "devDependencies": {
+    "electron": "^24.3.0",
+    "electron-prebuilt-compile": "^8.2.0"
+  }
+}

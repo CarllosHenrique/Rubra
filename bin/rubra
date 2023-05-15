@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+project_name = ARGV[1]
+
+if ARGV.include?('--desktop')
+  system("mkdir \"#{project_name}\"")
+  system('./permissions.sh')
+  system("electron-forge init \"#{project_name}\"")
+  
+end
+
+puts "Projeto #{project_name} criado com sucesso!"
