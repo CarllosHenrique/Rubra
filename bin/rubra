@@ -1,12 +1,33 @@
 #!/usr/bin/env ruby
 
-project_name = ARGV[1]
-
-if ARGV.include?('--desktop')
-  system("mkdir \"#{project_name}\"")
-  system('./permissions.sh')
-  system("electron-forge init \"#{project_name}\"")
-  
+def show_help
+  puts "Usage: Rubra [command] [options]"
+  puts "Commands:"
+  puts "  np [project_name] --desktop (default)   Create a new desktop app project"
+  puts "  help                           Show this help message"
 end
 
-puts "Projeto #{project_name} criado com sucesso!"
+def create_desktop_project(project_name)
+  if project_name.nil?
+    raise ArgumentError, "Project name is missing. Usage: Rubra np [project_name] --desktop"
+  end
+
+
+    system("mkdir \"#{project_name}\"")
+    system('./permissions.sh')
+    system("electron-forge init \"#{project_name}\"")
+    system("cd \"#{project_name}\" && npm init -y")
+    system("cd \"#{project_name}\" && npm install electron-prebuilt-compile && npm install electron-squirrel-startup")
+    system("cp -r /home/carllosintf/Documents/PROJETOS/ruby/ruby/rubra/* \"#{project_name}\"")
+
+    puts "Projeto #{project_name} criado com sucesso!"
+end
+
+if ARGV.empty?
+  show_help
+elsif ARGV[0] == "np"
+  create_desktop_project(ARGV[1])
+else
+  puts "Unknown command: #{ARGV[0]}"
+  show_help
+end
