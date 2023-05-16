@@ -1,7 +1,6 @@
-require "sinatra/activerecord/rake"
+Dir.glob('config/tasks/*.rake').each { |r| import r }
 
-namespace :db do
-  task :load_config do
-    require "./app"
-  end
-end
+
+
+
+

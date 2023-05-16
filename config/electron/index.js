@@ -12,7 +12,7 @@ function createWindow () {
     }
   })
 
-  mainWindow.loadURL('http://127.0.0.1:4567/');
+  mainWindow.loadURL('http://localhost:3000/');
 
   const appProcess = spawn('bundle', ['exec', 'ruby', 'main.rb'])
   appProcess.stdout.on('data', (data) => {
