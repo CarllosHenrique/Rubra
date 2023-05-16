@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'sqlite3', '~> 1.3', '>= 1.3.11'
-
 gem 'sinatra'
+
+gem 'sinatra-contrib'
+
+gem "sinatra-activerecord"
+
+gem "sqlite3"
+
+gem "rake"

@@ -1,32 +1,34 @@
 #!/usr/bin/env ruby
 
 def show_help
-  puts "Usage: Rubra [command] [options]"
+  puts "Usage: rubra [command] [options]"
   puts "Commands:"
-  puts "  np [project_name] --desktop (default)   Create a new desktop app project"
-  puts "  help                           Show this help message"
+  puts "  np [project_name]         Create a new desktop app project"
+  puts "Options:"
+  puts "  --desktop (default)      Create a desktop app project"
+  puts "  --help                    Show this help message"
 end
 
 def create_desktop_project(project_name)
-  if project_name.nil?
-    raise ArgumentError, "Project name is missing. Usage: Rubra np [project_name] --desktop"
-  end
+  raise ArgumentError, "Project name is missing. Usage: rubra np [project_name]" if project_name.nil?
 
+  Dir.mkdir(project_name)
+  Dir.chdir(project_name)
+  system("npm init")
+  system("npm install --save-dev electron")
+  system("npm install electron-prebuilt-compile --save-dev")
+  system("cp -r /home/carllosintf/rubra/* .")
+  system("bundle install")
+  system("bundle exec rake db:create")
 
-    system("mkdir \"#{project_name}\"")
-    system('./permissions.sh')
-    system("electron-forge init \"#{project_name}\"")
-    system("cd \"#{project_name}\" && npm init -y")
-    system("cd \"#{project_name}\" && npm install electron-prebuilt-compile && npm install electron-squirrel-startup")
-    system("cp -r /home/carllosintf/Documents/PROJETOS/ruby/ruby/rubra/* \"#{project_name}\"")
-
-    puts "Projeto #{project_name} criado com sucesso!"
+  puts "Project #{project_name} created successfully!"
 end
 
-if ARGV.empty?
+if ARGV.empty? || ARGV.include?("--help")
   show_help
 elsif ARGV[0] == "np"
-  create_desktop_project(ARGV[1])
+  project_name = ARGV[1]
+  create_desktop_project(project_name)
 else
   puts "Unknown command: #{ARGV[0]}"
   show_help

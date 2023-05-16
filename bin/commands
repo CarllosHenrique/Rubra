@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [ "$1" == "serverapp" ]; then
-    bundle exec ruby app.rb -p 3000 & 
-    npm start &
-fi
