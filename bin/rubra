@@ -19,6 +19,7 @@ def create_desktop_project(project_name)
   system("npm install electron-prebuilt-compile --save-dev")
   system("cp -r /home/carllosintf/rubra/* .")
   system("bundle install")
+  system("touch .gitignore")
   system("bundle exec rake db:create")
 
   puts "Project #{project_name} created successfully!"

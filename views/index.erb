@@ -1,12 +1,83 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Minha página</title>
-    <link rel="stylesheet" href="">
-  </head>
-  <body>
-    <h1>Meu conteúdo</h1>
-    <p>Aqui está o código: <%= @code %></p>
-  </body>
-</html>
+<div class="card">
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="card-inner"></div>
+
+  <section class="hero is-info is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-1 has-text-weight-bold">
+          Rubra
+        </h1>
+        <h2 class="subtitle is-3 has-text-weight-bold">
+          You Are Rubra Desktop ♥
+        </h2>
+        <div class="container">
+          <div class="tree">
+            <div class="branch" style="--x:0">
+              <span style="--i:0;"></span>
+              <span style="--i:1;"></span>
+              <span style="--i:2;"></span>
+              <span style="--i:3;"></span>
+            </div>
+            <div class="branch" style="--x:1">
+              <span style="--i:0;"></span>
+              <span style="--i:1;"></span>
+              <span style="--i:2;"></span>
+              <span style="--i:3;"></span>
+            </div>
+            <div class="branch" style="--x:2">
+              <span style="--i:0;"></span>
+              <span style="--i:1;"></span>
+              <span style="--i:2;"></span>
+              <span style="--i:3;"></span>
+            </div>
+            <div class="branch" style="--x:3">
+              <span style="--i:0;"></span>
+              <span style="--i:1;"></span>
+              <span style="--i:2;"></span>
+              <span style="--i:3;"></span>
+            </div>
+            <div class="stem">
+              <span style="--i:0;"></span>
+              <span style="--i:1;"></span>
+              <span style="--i:2;"></span>
+              <span style="--i:3;"></span>
+            </div>
+            <span class="shadow"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section class="section">
+    <div class="container">
+      <h3 class="title is-3">About Rubra</h3>
+      <p>
+        Rubra is a web framework for Ruby that aims to be simple and powerful, allowing developers to quickly build
+        desktops apps applications with ease. With Rubra, you can easily handle HTTP requests and responses, render
+        templates, and access databases with ActiveRecord.
+      </p>
+    </div>
+  </section>
+  <hr>
+  <section class="section">
+    <div class="container">
+      <h3 class="title is-3">
+        <%= @dir %>
+      </h3>
+      <p>
+        <%= @time %>
+      </p>
+      <p>
+        <a class="learn-more" href="https://uiverse.io/">
+          <span class="circ" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="link-text">Free templates</span>
+        </a>
+      </p>
+    </div>
+  </section>
+</div>
